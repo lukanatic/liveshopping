@@ -101,3 +101,14 @@ function doesEmailExist($conn, $email){
 
 			return $result;	
 		}
+
+
+	function displayError($show,$input){
+
+			if(isset($show[$input])){
+
+
+				echo '<span class="err">'.$show[$input]. '</span>' ;
+				return true;
+        }
+	}

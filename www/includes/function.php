@@ -83,3 +83,21 @@ function fileUpload($files,$error,$pic){
 
 		}
 	 	
+function doesEmailExist($conn, $email){
+			$result = false;
+
+			$stmt = $dbconn->prepare("SELECT email FROM admin WHERE  ");
+
+			#bind parameter
+			$stmt->bindParam(":e", $email);
+			$stmt->execute();
+
+			#get number of rolls returned
+			$count = $stmt->rowCount();
+
+			if($count > 0){
+				$result = true;
+			}
+
+			return $result;	
+		}
